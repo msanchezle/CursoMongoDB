@@ -1,0 +1,10 @@
+db.system.js.save({_id:"InsertarAlumno", value:function(v_id_alumno, v_nombre, v_apellidos, v_dni){ return db.getCollection('alumno').insertOne({ IdAlumno: v_id_alumno, Nombre: v_nombre, Apellidos: v_apellidos, DNI: v_dni }); }});
+db.system.js.save({_id:"LeerAlumno", value:function(v_dni){return db.getCollection('alumno').find({ DNI: v_dni }, { Nombre: 1, Apellidos: 1 }); }})
+db.system.js.save({_id:"ActualizarAlumno", value:function(v_id_alumno, v_nombre, v_apellidos, v_dni){ return db.getCollection('alumno').updateOne({ DNI: v_dni }, { $set: { Nombre: v_nombre, Apellidos: v_apellidos, DNI: v_dni} });}});                                                
+db.system.js.save({_id:"BorrarAlumno", value:function(v_dni){ return db.getCollection('alumno').remove({ DNI: v_dni }); }});
+db.loadServerScripts();
+InsertarAlumno(100000, 'Pepito', 'Grillo', '555555X')
+LeerAlumno('555555X')
+ActualizarAlumno(100000, 'Pepito1', 'Grillo1', '555555X')
+LeerAlumno('555555X')
+BorrarAlumno('555555X')
