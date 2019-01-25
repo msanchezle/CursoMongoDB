@@ -1,0 +1,34 @@
+{
+    "_id" : ObjectId("5c4af73524f4c54e7910140b"),
+    "Apellido" : "Apellido1",
+    "Nombre" : "Nombre1",
+    "Clase" : [ 
+        {
+            "Titulo" : "TituloClase1",
+            "Descripcion" : "DescripcionClase1"
+        }, 
+        {
+            "Titulo" : "TituloClase2",
+            "Descripcion" : "DescripcionClase2"
+        }
+    ]
+}
+
+{
+    "_id" : ObjectId("5c4af73524f4c54e7910140d"),
+    "Apellido" : "Apellido2",
+    "Nombre" : "Nombre2",
+    "Clase" : [ 
+        {
+            "Titulo" : "TituloClase1",
+            "Descripcion" : "DescripcionClase1"
+        }, 
+        {
+            "Titulo" : "TituloClase2",
+            "Descripcion" : "DescripcionClase2"
+        }
+    ]
+}
+
+db.getCollection('Estudiante').find({Titulo:'TituloClase1'});
+db.getCollection('Estudiante').find({Apellido:'Apellido1'});
